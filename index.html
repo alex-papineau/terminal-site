@@ -13,141 +13,12 @@
 
 <body>
     <script>
-var term = $('body').terminal({
-    size: function(num) {
-        this.css('--size', num);
-    },
-    color: function(color) {
-        this.css('--color', color);
-    }
-}, {
-    completion: true
-});
-
-class BarAnimation extends $.terminal.Animation {
-    constructor(...args) {
-        super(...args);
-        this._i = 0;
-    }
-    render(term) {
-        if (this._i > term.cols()) {
-            this._i = 0;
-        } else {
-            this._i++;
-        }
-        return ['-'.repeat(this._i)];
-    }
-}
-
-term.echo(new $.terminal.FramesAnimation([
-    [
-        '.',
-        '|',
-        '.'
-    ],
-    [
-        ' .',
-        ' |',
-        ' .'
-    ],
-    [
-        '  .',
-        '  |',
-        '  .'
-    ],
-    [
-        ' .',
-        ' |',
-        ' .'
-    ],
-    [
-        '.',
-        '|',
-        '.'
-    ]
-], 8));
-term.echo(new $.terminal.FramesAnimation([
-    [
-        '  o    ',
-        '       ',
-        '       ',
-        '       '
-    ],
-    [
-        '       ',
-        '   o   ',
-        '       ',
-        '       '
-    ],
-    [
-        '       ',
-        '       ',
-        '    o  ',
-        '       '
-    ],
-    [
-        '       ',
-        '       ',
-        '       ',
-        '     o '
-    ],
-    [
-        '       ',
-        '       ',
-        '      o',
-        '       '
-    ],
-    [
-        '       ',
-        '     o ',
-        '       ',
-        '       '
-    ],
-    [
-        '    o  ',
-        '       ',
-        '       ',
-        '       '
-    ],
-    [
-        '       ',
-        '   o   ',
-        '       ',
-        '       '
-    ],
-    [
-        '       ',
-        '       ',
-        '  o    ',
-        '       '
-    ],
-    [
-        '       ',
-        '       ',
-        '       ',
-        ' o     '
-    ],
-    [
-        '       ',
-        '       ',
-        'o      ',
-        '       '
-    ],
-    [
-        '       ',
-        ' o     ',
-        '       ',
-        '       '
-    ]
-], 8));
-term.echo(new BarAnimation(50));
-        $(function () {
-            const terminal = $('body').terminal({
-                hello: function (name) {
-                    this.echo(`Hello, ${name}. Welcome to this terminal.`);
-                },
-                whoami: function () {
-                    this.echo($(`
+        var term = $('body').terminal({
+            hello: function (name) {
+                this.echo(`Hello, ${name}. Welcome to this terminal.`);
+            },
+            whoami: function () {
+                this.echo($(`
                <pre>
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -186,19 +57,143 @@ term.echo(new BarAnimation(50));
 hi, my name is alex-papineau :)
     </pre>
                     `));
-                },
-                dog: function () {
-                    this.echo($('<img src="https://placedog.net/640/480?random">'));
-                },
-                sourceCode: function () {
-                    return fetch('https://terminal.jcubic.pl')
-                        .then(r => r.text())
-                        .then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
-                }
-            }, {
-                greetings: 'oh yeah'
-            });
+            },
+            dog: function () {
+                this.echo($('<img src="https://placedog.net/640/480?random">'));
+            },
+            sourceCode: function () {
+                return fetch('https://terminal.jcubic.pl')
+                    .then(r => r.text())
+                    .then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
+            },
+            size: function (num) {
+                this.css('--size', num);
+            },
+            color: function (color) {
+                this.css('--color', color);
+            }
+        }, {
+            completion: true,
+            greetings: 'oh yeah'
         });
+
+        class BarAnimation extends $.terminal.Animation {
+            constructor(...args) {
+                super(...args);
+                this._i = 0;
+            }
+            render(term) {
+                if (this._i > term.cols()) {
+                    this._i = 0;
+                } else {
+                    this._i++;
+                }
+                return ['-'.repeat(this._i)];
+            }
+        }
+
+        term.echo(new $.terminal.FramesAnimation([
+            [
+                '.',
+                '|',
+                '.'
+            ],
+            [
+                ' .',
+                ' |',
+                ' .'
+            ],
+            [
+                '  .',
+                '  |',
+                '  .'
+            ],
+            [
+                ' .',
+                ' |',
+                ' .'
+            ],
+            [
+                '.',
+                '|',
+                '.'
+            ]
+        ], 8));
+        term.echo(new $.terminal.FramesAnimation([
+            [
+                '  o    ',
+                '       ',
+                '       ',
+                '       '
+            ],
+            [
+                '       ',
+                '   o   ',
+                '       ',
+                '       '
+            ],
+            [
+                '       ',
+                '       ',
+                '    o  ',
+                '       '
+            ],
+            [
+                '       ',
+                '       ',
+                '       ',
+                '     o '
+            ],
+            [
+                '       ',
+                '       ',
+                '      o',
+                '       '
+            ],
+            [
+                '       ',
+                '     o ',
+                '       ',
+                '       '
+            ],
+            [
+                '    o  ',
+                '       ',
+                '       ',
+                '       '
+            ],
+            [
+                '       ',
+                '   o   ',
+                '       ',
+                '       '
+            ],
+            [
+                '       ',
+                '       ',
+                '  o    ',
+                '       '
+            ],
+            [
+                '       ',
+                '       ',
+                '       ',
+                ' o     '
+            ],
+            [
+                '       ',
+                '       ',
+                'o      ',
+                '       '
+            ],
+            [
+                '       ',
+                ' o     ',
+                '       ',
+                '       '
+            ]
+        ], 8));
+        term.echo(new BarAnimation(50));
     </script>
 </body>
 
