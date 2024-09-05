@@ -64,12 +64,6 @@
                     .then(r => r.text())
                     .then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
             },
-            size: function (num) {
-                this.css('--size', num);
-            },
-            color: function (color) {
-                this.css('--color', color);
-            }
         }, {
             completion: true,
             greetings: 'Terminal site- WIP'
