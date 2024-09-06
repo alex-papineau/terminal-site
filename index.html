@@ -14,10 +14,11 @@
 <body>
     <script>
         var term = $('body').terminal({
+
             hello: function (name) {
                 this.echo(`Hello, ${name}. Welcome to this terminal.`);
             },
-            profilepicture: function () {
+            profilePicture: function () {
                 this.echo($(`
                <pre>
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -64,6 +65,9 @@
                     .then(r => r.text())
                     .then(html => html.match(/<title>([^>]+)<\/title>/)[1]);
             },
+            echo: function (text) {
+                this.echo(text);
+            },
         }, {
             completion: true,
             greetings: 'Terminal site- WIP'
@@ -83,110 +87,9 @@
                 return ['-'.repeat(this._i)];
             }
         }
-
-        term.echo(new $.terminal.FramesAnimation([
-            [
-                '.',
-                '|',
-                '.'
-            ],
-            [
-                ' .',
-                ' |',
-                ' .'
-            ],
-            [
-                '  .',
-                '  |',
-                '  .'
-            ],
-            [
-                ' .',
-                ' |',
-                ' .'
-            ],
-            [
-                '.',
-                '|',
-                '.'
-            ]
-        ], 8));
-        term.echo(new $.terminal.FramesAnimation([
-            [
-                '  o    ',
-                '       ',
-                '       ',
-                '       '
-            ],
-            [
-                '       ',
-                '   o   ',
-                '       ',
-                '       '
-            ],
-            [
-                '       ',
-                '       ',
-                '    o  ',
-                '       '
-            ],
-            [
-                '       ',
-                '       ',
-                '       ',
-                '     o '
-            ],
-            [
-                '       ',
-                '       ',
-                '      o',
-                '       '
-            ],
-            [
-                '       ',
-                '     o ',
-                '       ',
-                '       '
-            ],
-            [
-                '    o  ',
-                '       ',
-                '       ',
-                '       '
-            ],
-            [
-                '       ',
-                '   o   ',
-                '       ',
-                '       '
-            ],
-            [
-                '       ',
-                '       ',
-                '  o    ',
-                '       '
-            ],
-            [
-                '       ',
-                '       ',
-                '       ',
-                ' o     '
-            ],
-            [
-                '       ',
-                '       ',
-                'o      ',
-                '       '
-            ],
-            [
-                '       ',
-                ' o     ',
-                '       ',
-                '       '
-            ]
-        ], 8));
         term.echo(new BarAnimation(50));
     </script>
 </body>
 
 </html>
+
