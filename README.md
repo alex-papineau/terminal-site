@@ -1,1 +1,1 @@
-Now visible at https://terminal.alexpapineau.com/
+WIP - Now visible at https://terminal.alexpapineau.com/ (FIX REDIRECT)
